@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         temperatureView = (TemperatureView) findViewById(R.id.temperatureView);
         temperatureView.setRadius(250);
-        temperatureView.setTemperature(0);
+        temperatureView.setTemperature(+15);
 
         textConsole = findViewById(R.id.textConsole);
         textLight = findViewById(R.id.textLight);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         // Получить все датчики, какие есть
         sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
-        
+
         // Датчик освещенности (он есть на многих моделях)
         sensorLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Вывод датчика температуры
     private void showTempSensors(SensorEvent event){
-        temperatureView.setTemperature((int)event.values[0]);
+//        temperatureView.setTemperature((int)event.values[0]);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Temperature Sensor value = ").append(event.values[0])
                 .append("\n").append("=======================================").append("\n");
